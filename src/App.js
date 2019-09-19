@@ -1,28 +1,32 @@
 //TODO: STEP 1 - Import the useState hook.
-import React from "react";
+import React from "react";     // or import React { useState } from "react"; 
 import "./App.css";
 import BottomRow from "./BottomRow";
 
+
+//homeScore (numbers)
+//AwayScore (numbers)
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score. *const [value, setValue] = useState(); // Give these better names, and decide whether you want to pass an initial score into the state hook as the initialValue
 
-  const [homeScore, setHomeScore] = React.useState(0);   //lions 
+  const [homeScore, setHomeScore] = React.useState(0);   
+  //lions  // or useState 
   const [awayScore, setAwayScore] = React.useState(0);   //tigers 
 
    const lionsTouchDown = event => {
      setHomeScore(homeScore + 7);
-   }
-   const lionsFieldGal = event => {
+   };
+   const lionsFieldGoal = event => {
      setHomeScore(homeScore + 3);
+   };
+
+   const tigersTouchDown = event => {
+     setAwayScore(awayScore + 7);
    }
 
-  //  const tigersTouchDown = event => {
-  //    setAwayScore(awayScore + 7);
-  //  }
-
-  //  const tigersFieldGoal = event => {
-  //    setAwayScore(awayScore + 3);
-  //  }
+   const tigersFieldGoal = event => {
+     setAwayScore(awayScore + 3);
+   }
 
 
   return (
@@ -50,11 +54,11 @@ function App() {
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button 
-          onClick="{lionsTouchDown}" className="homeButtons__touchdown">
+          onClick={lionsTouchDown} className="homeButtons__touchdown">
             Home Touchdown
             </button>
           <button 
-          onClick="{lionsFieldGoal}" className="homeButtons__fieldGoal">
+          onClick={lionsFieldGoal} className="homeButtons__fieldGoal">
             Home Field Goal
             </button>
         </div>
@@ -62,11 +66,11 @@ function App() {
         {/* Tigers away*/}
         <div className="awayButtons">
           <button 
-          onClick="{tigersTouchDown()}"className="awayButtons__touchdown">
+          onClick={tigersTouchDown}className="awayButtons__touchdown">
             Away Touchdown
             </button>
           <button 
-          onClick="{tigersFieldGoal}"
+          onClick={tigersFieldGoal}
           className="awayButtons__fieldGoal">
             Away Field Goal
             </button>
